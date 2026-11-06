@@ -1,5 +1,21 @@
 # @biomejs/biome
 
+## 2.6.7
+
+### Patch Changes
+
+- [#12955](https://github.com/biomejs/biome/pull/12955) [`e1ef913`](https://github.com/biomejs/biome/commit/e1ef91390ce3c02bc15ebf58482b082a6ab97a46) Thanks [@ematipico](https://github.com/ematipico)! - Fixed an issue where Biome could silently skip configured plugins. Biome now reports an error when those plugins are unavailable during analysis.
+
+- [#12050](https://github.com/biomejs/biome/pull/12050) [`60f4695`](https://github.com/biomejs/biome/commit/60f46952be732210d52fc4a45c01fbbf88acdb3c) Thanks [@dor-sr](https://github.com/dor-sr)! - Fixed [#11933](https://github.com/biomejs/biome/issues/11933): [`useUnicodeRegex`](https://biomejs.dev/linter/rules/use-unicode-regex/) no longer offers to add the `u` flag to patterns that become invalid or change meaning in Unicode mode, such as `/{/`, `/\-/` or `/[\d-z]/`. The rule still reports them.
+
+- [#12951](https://github.com/biomejs/biome/pull/12951) [`014b976`](https://github.com/biomejs/biome/commit/014b976ba021119c5c99cfe6bb07361c8e89edc9) Thanks [@ematipico](https://github.com/ematipico)! - Fixed [#10782](https://github.com/biomejs/biome/issues/10782): [`noUndeclaredClasses`](https://biomejs.dev/linter/rules/no-undeclared-classes/) no longer appears to hang on projects with long component import chains.
+
+- [#12967](https://github.com/biomejs/biome/pull/12967) [`bd0988e`](https://github.com/biomejs/biome/commit/bd0988e566acadb7375026c3f24b27b0d491eb15) Thanks [@siketyan](https://github.com/siketyan)! - Fixed [#12827](https://github.com/biomejs/biome/issues/12827): [`noDuplicateProperties`](https://biomejs.dev/linter/rules/no-duplicate-properties/), [`noDuplicateCustomProperties`](https://biomejs.dev/linter/rules/no-duplicate-custom-properties/), and [`noMissingVarFunction`](https://biomejs.dev/linter/rules/no-missing-var-function/) now check declarations at the top level of embedded CSS templates, such as `` styled.div`...` ``.
+
+- [#12968](https://github.com/biomejs/biome/pull/12968) [`ec0142b`](https://github.com/biomejs/biome/commit/ec0142bfd45d7260f5241ad291a7c02bd0bfe24e) Thanks [@siketyan](https://github.com/siketyan)! - Fixed [#12826](https://github.com/biomejs/biome/issues/12826): Biome now detects CSS in styled-components templates that use `.attrs()`, such as `` styled.button.attrs({ type: "button" })`...` `` and `` styled(Component).attrs(() => ({}))`...` ``, so they are formatted and linted like `` styled.button`...` ``.
+
+- [#12967](https://github.com/biomejs/biome/pull/12967) [`bd0988e`](https://github.com/biomejs/biome/commit/bd0988e566acadb7375026c3f24b27b0d491eb15) Thanks [@siketyan](https://github.com/siketyan)! - Fixed [`noMissingVarFunction`](https://biomejs.dev/linter/rules/no-missing-var-function/) so it also checks declarations inside at-rules such as `@page` and `@font-face`. For example, `@page { margin: --page-margin; }` is now reported when `--page-margin` is declared in `:root`.
+
 ## 2.6.6
 
 ### Patch Changes
